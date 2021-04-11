@@ -9,10 +9,8 @@
 <%
     if(request.getParameter("session.username") != null){
     session.setAttribute("session.username", request.getParameter("session.username"));
-    response.sendRedirect(request.getRequestURI());
     }else if(request.getParameter("session.logout") != null){
         session.removeAttribute("session.username");
-        response.sendRedirect(request.getRequestURI());
     }
     
     String errorMessage = null;
@@ -276,7 +274,7 @@
                         <td><input type="number" value="<%= p2LPIV %>" name="session.p2LPIV"></td>
                     </tr>
                 </table>
-            
+                <input type="submit" value="Enviar">
             </form>
         <%}else{%>
             <% session.removeAttribute("session.username");%>
