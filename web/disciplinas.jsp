@@ -191,6 +191,97 @@
         <title>Disciplinas</title>
     </head>
     <body>
-        
+        <%@include file="WEB-INF/jspf/header.jspf" %>
+        <br><br>
+        <% if(session.getAttribute("session.username") != null ){%>
+            <form method="post">
+                <table border="1px">
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Nota - P1</th>
+                        <th>Nota - P2</th>
+                        <th>Input - P1</th>
+                        <th>Input - P2</th>
+                    </tr>
+                    
+                    <!-- POO -->
+                    <tr>
+                        <td>POO</td>
+                        <td><%= session.getAttribute("session.p1POO") %></td>
+                        <td><%= session.getAttribute("session.p2POO") %></td>
+                        <td><input type="number" value="<%= p1POO %>" name="session.p1POO"></td>
+                        <td><input type="number" value="<%= p2POO %>" name="session.p2POO"></td>
+                    </tr>
+                    
+                    <!-- BDD -->
+                    <tr>
+                        <td>BDD</td>
+                        <td><%= session.getAttribute("session.p1BDD") %></td>
+                        <td><%= session.getAttribute("session.p2BDD") %></td>
+                        <td><input type="number" value="<%= p1BDD %>" name="session.p1BDD"></td>
+                        <td><input type="number" value="<%= p2BDD %>" name="session.p2BDD"></td>
+                    </tr>
+                    
+                    <!-- INGIV -->
+                    <tr>
+                        <td>INGIV</td>
+                        <td><%= session.getAttribute("session.p1INGIV") %></td>
+                        <td><%= session.getAttribute("session.p2INGIV") %></td>
+                        <td><input type="number" value="<%= p1INGIV %>" name="session.p1INGIV"></td>
+                        <td><input type="number" value="<%= p2INGIV %>" name="session.p2INGIV"></td>
+                    </tr>
+                    
+                    <!-- EDD -->
+                    <tr>
+                        <td>EDD</td>
+                        <td><%= session.getAttribute("session.p1EDD") %></td>
+                        <td><%= session.getAttribute("session.p2EDD") %></td>
+                        <td><input type="number" value="<%= p1EDD %>" name="session.p1EDD"></td>
+                        <td><input type="number" value="<%= p2EDD %>" name="session.p2EDD"></td>
+                    </tr>
+                    
+                    <!-- SOII -->
+                    <tr>
+                        <td>SOII</td>
+                        <td><%= session.getAttribute("session.p1SOII") %></td>
+                        <td><%= session.getAttribute("session.p2SOII") %></td>
+                        <td><input type="number" value="<%= p1SOII %>" name="session.p1SOII"></td>
+                        <td><input type="number" value="<%= p2SOII %>" name="session.p2SOII"></td>
+                    </tr>
+                    
+                    <!-- MET -->
+                    <tr>
+                        <td>MET</td>
+                        <td><%= session.getAttribute("session.p1MET") %></td>
+                        <td><%= session.getAttribute("session.p2MET") %></td>
+                        <td><input type="number" value="<%= p1MET %>" name="session.p1MET"></td>
+                        <td><input type="number" value="<%= p2MET %>" name="session.p2MET"></td>
+                    </tr>
+                    
+                    <!-- ESIII -->
+                    <tr>
+                        <td>ESIII</td>
+                        <td><%= session.getAttribute("session.p1ESIII") %></td>
+                        <td><%= session.getAttribute("session.p2ESIII") %></td>
+                        <td><input type="number" value="<%= p1ESIII %>" name="session.p1ESIII"></td>
+                        <td><input type="number" value="<%= p2ESIII %>" name="session.p2ESIII"></td>
+                    </tr>
+                    
+                    <!-- LPIV -->
+                    <tr>
+                        <td>LPIV</td>
+                        <td><%= session.getAttribute("session.p1LPIV") %></td>
+                        <td><%= session.getAttribute("session.p2LPIV") %></td>
+                        <td><input type="number" value="<%= p1LPIV %>" name="session.p1LPIV"></td>
+                        <td><input type="number" value="<%= p2LPIV %>" name="session.p2LPIV"></td>
+                    </tr>
+                </table>
+            
+            </form>
+        <%}else{%>
+            <% session.removeAttribute("session.username");%>
+            <div style="color:red"><p>Você não tem permissão para acessar essa página, por favor efetue login</p></div>
+            <% session.invalidate();%>
+        <%}%>
     </body>
 </html>
